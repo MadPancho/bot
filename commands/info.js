@@ -1,19 +1,20 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
+const { info } = require('../content.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('info')
-		.setDescription('Show the channel information on the server')
+		.setName(info[0].name)
+		.setDescription(info[0].description)
 		.addStringOption(option =>
 			option.setName('category')
 				.setDescription('The information catagory')
 				.setRequired(true)
-				.addChoice('Whitelist Information', 'whitelist')
-				.addChoice('IP address information', 'ip')
-				.addChoice('How can I make a suggestion for the server?', 'suggestion')
-				.addChoice('Frequently asked questions', 'faq')
-				.addChoice('Server Information', 'server')),
+				.addChoice(info[0].choices[0].whitelist[0].name, 'whitelist')
+				.addChoice(info[0].choices[0].ip[0].name, 'ip')
+				.addChoice(info[0].choices[0].suggestion[0].name, 'suggestion')
+				.addChoice(info[0].choices[0].faq[0].name, 'faq')
+				.addChoice(info[0].choices[0].server[0].name, 'server')),
 	async execute(interaction) {
 		function makeEmbed(title, description, color) {
 			const embed = new MessageEmbed()
@@ -26,23 +27,23 @@ module.exports = {
 		const string = interaction.options.getString('category');
 		
 		if(string == 'whitelist') {
-			embed = makeEmbed('Whitelist help', 'In order to get whitelisted, visit #server-info', '#75ff70')
+			embed = makeEmbed(info[0].choices[0].whitelist[0].title, info[0].choices[0].whitelist[0].text, info[0].choices[0].whitelist[0].color)
 			await interaction.reply({ embeds: [embed] });
 		}
 		else if(string == 'ip') {
-			embed = makeEmbed('Server IP help', 'For the server IP, visit #server-info', '#75ff70')
+			embed = makeEmbed(info[0].choices[0].ip[0].title, info[0].choices[0].ip[0].text, info[0].choices[0].ip[0].color)
 			await interaction.reply({ embeds: [embed] });
 		}
 		else if(string == 'suggestion') {
-			embed = makeEmbed('Suggestion help', 'In order to make a suggestion, visit https://forms.gle/m8UoQtw6FAEprMiF8', '#75ff70')
+			embed = makeEmbed(info[0].choices[0].suggestion[0].title, info[0].choices[0].suggestion[0].text, info[0].choices[0].suggestion[0].color)
 			await interaction.reply({ embeds: [embed] });
 		}
 		else if(string == 'faq') {
-			embed = makeEmbed('FAQ', 'Common questions are answered here. \n\nhttps://github.com/CarbonGhost/Prosperity/wiki/FAQ', '#75ff70')
+			embed = makeEmbed(info[0].choices[0].faq[0].title, info[0].choices[0].faq[0].text, info[0].choices[0].faq[0].color)
 			await interaction.reply({ embeds: [embed] });
 		}
 		else if(string == 'server') {
-			embed = makeEmbed('Server Information', 'https://github.com/CarbonGhost/Prosperity/wiki', '#75ff70')
+			embed = makeEmbed(info[0].choices[0].server[0].title, info[0].choices[0].server[0].text, info[0].choices[0].server[0].color)
 			await interaction.reply({ embeds: [embed] });
 		}
 	},

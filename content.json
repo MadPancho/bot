@@ -1,38 +1,68 @@
 {
-    "help": {
-        "command-name": "help",
-        "command-description": "Get info on all the commands in the server!",
-        "command-reply": "Well, for one, you can *type slash and look at the decriptions under all of the commands* but this is just for your convinence!\n\n`/help` Gives this dialog\n`/info <param>` Gives the channel a bit of info about the server!\n`/ping` A simple command for testing.\n`/report`  A method to report someone. \n`/verify` Use this to apply for a whitelist!\n\n Why did i make this it just took a while."
-    },
-    "info": {
-        "command-name": "info",
-        "command-description": "Get Info on the server!",
-        "command-replies": {
-            "whitelist": {
-                "title": "Whitelist Info",
-                "text": "In order to get whitelisted, visit #server-info",
-                "color": "#75ff70"
-            },
-            "ip": {
-                "title": "IP Info",
-                "text": "For the server IP, visit #server-info",
-                "color": "#75ff70"
-            },
-            "suggestion": {
-                "title": "Suggestion Info",
-                "text": "In order to make a suggestion, visit https://forms.gle/m8UoQtw6FAEprMiF8",
-                "color": "#75ff70"
-            },
-            "faq": {
-                "title": "FAQ Info",
-                "text": "Common questions are answered here. \n\nhttps://github.com/CarbonGhost/Prosperity/wiki/FAQ",
-                "color": "#75ff70"
-            },
-            "server": {
-                "title": "Server Info",
-                "text": "https://github.com/CarbonGhost/Prosperity/wiki",
-                "color": "#75ff70"
-            }
+    "help": [
+        {
+            "name": "help",
+            "description": "Show what you can do!",
+            "text": "Well, for one, you can *type slash and look at the decriptions under all of the commands* but this is just for your convinence!\n\n`/help` Gives this dialog\n`/info <param>` Gives the channel a bit of info about the server!\n`/ping` A simple command for testing.\n`/report`  A method to report someone. \n`/verify` Use this to apply for a whitelist!\n\n Why did i make this it just took a while.",
+            "_comment": "This ^ Can be an embed, talk to inter"
         }
-    }
+        
+    ],
+    "info": [
+        {
+            "name": "info",
+            "description": "Show the channel information on the server",
+            "choices": [
+                {
+                    "whitelist": [
+                        {
+                            "name": "whitelist",
+                            "title": "Whitelist info",
+                            "text": "In order to get whitelisted, visit #server-info",
+                            "color": "#75ff70"                          
+                        }
+                    ],
+                    "ip": [
+                        {
+                            "name": "ip",
+                            "title": "IP info",
+                            "text": "For the server IP, visit #server-info",
+                            "color": "#75ff70"
+                        }
+                    ],
+                    "suggestion": [
+                        {
+                            "name": "suggestion",
+                            "title": "How do I suggest something",
+                            "text": "In order to make a suggestion, visit https://forms.gle/m8UoQtw6FAEprMiF8",
+                            "color": "#75ff70"
+                        }
+                    ],
+                    "faq": [
+                        {
+                            "name": "faq",
+                            "title": "Frequently Asked questions",
+                            "text": "Common questions are answered here. \n\nhttps://github.com/CarbonGhost/Prosperity/wiki/FAQ",
+                            "color": "#75ff70"
+                        }
+                    ],
+                    "server": [
+                        {
+                            "name": "server",
+                            "title": "Server Info",
+                            "text": "https://github.com/CarbonGhost/Prosperity/wiki",
+                            "color": "#75ff70"
+                        }
+                    ]                   
+                }
+            ]
+        }
+    ],
+    "ping": [
+        {
+            "name": "ping",
+            "description": "A test command",
+            "text": "🏓 Pong!"
+        }
+    ]
 }
